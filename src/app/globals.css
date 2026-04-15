@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #A0C814;
+  --color-primary-dark: #7A9A0E;
+  --color-primary-light: #E8F5CC;
+  --color-neutral-dark: #2D2D2D;
+  --color-neutral: #5A5A5A;
+  --color-neutral-light: #F5F5F0;
+  --color-background: #FAFAF8;
+  --color-white: #FFFFFF;
+  --color-accent-warm: #C8A96E;
+  --color-error: #E55050;
+  --color-error-light: #FFF5F5;
+  --font-heading: var(--font-outfit);
+  --font-body: var(--font-inter);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-neutral);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  color: var(--color-neutral-dark);
+}
+
+/* Hide scrollbar on slider containers */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Before/After slider */
+.before-after-slider {
+  position: relative;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
