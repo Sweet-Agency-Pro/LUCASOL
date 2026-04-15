@@ -107,7 +107,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <Container className="py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-          <p>© {new Date().getFullYear()} {SITE_NAME} — Tous droits réservés</p>
+          <p>© {new Date().getFullYear()} {SITE_NAME} - Tous droits réservés</p>
           <div className="flex gap-6">
             <Link href="/mentions-legales" className="hover:text-white transition-colors">
               Mentions légales

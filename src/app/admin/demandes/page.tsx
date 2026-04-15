@@ -19,7 +19,7 @@ export default function AdminDemandesPage() {
         <div>
           <h1 className="text-2xl font-bold text-neutral-dark">Demandes de contact</h1>
           <p className="text-sm text-neutral mt-1">
-            {fakeDemands.length} demandes — {newCount} nouvelle{newCount > 1 ? "s" : ""}
+            {fakeDemands.length} demandes - {newCount} nouvelle{newCount > 1 ? "s" : ""}
           </p>
         </div>
       </div>

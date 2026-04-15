@@ -20,7 +20,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "LUCASOL — Pose de parquet et revêtement de sol à Strasbourg",
+    default: "LUCASOL - Pose de parquet et revêtement de sol à Strasbourg",
     template: "%s | LUCASOL",
   },
   description:
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     "LUCASOL",
   ],
   openGraph: {
-    title: "LUCASOL — Pose de parquet et revêtement de sol à Strasbourg",
+    title: "LUCASOL - Pose de parquet et revêtement de sol à Strasbourg",
     description:
       "Artisan spécialisé en pose de parquet, PVC, moquette, ponçage et vitrification. Devis gratuit.",
     type: "website",

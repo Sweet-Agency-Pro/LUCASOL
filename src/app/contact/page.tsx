@@ -69,7 +69,7 @@ export default function ContactPage() {
           <p className="text-primary text-sm font-medium mb-2">Accueil &gt; Contact</p>
           <h1 className="text-4xl md:text-5xl font-bold text-white">Contact</h1>
           <p className="text-gray-300 mt-4 max-w-xl">
-            Devis gratuit — Réponse rapide
+            Devis gratuit - Réponse rapide
           </p>
         </Container>
       </section>
@@ -85,7 +85,7 @@ export default function ContactPage() {
                 {CONTACT.phone}
               </a>
             </div>
-            <span className="text-sm text-neutral">— Réponse rapide &middot; Devis gratuit</span>
+            <span className="text-sm text-neutral">- Réponse rapide &middot; Devis gratuit</span>
           </div>
         </Container>
       </section>
@@ -216,7 +216,7 @@ export default function ContactPage() {
                   <a href={CONTACT.phoneLink} className="text-2xl font-bold text-neutral-dark hover:text-primary transition-colors">
                     {CONTACT.phone}
                   </a>
-                  <p className="text-xs text-neutral mt-2">Réponse rapide — Devis gratuit</p>
+                  <p className="text-xs text-neutral mt-2">Réponse rapide - Devis gratuit</p>
                 </div>
               </Card>
 

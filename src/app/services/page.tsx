@@ -7,7 +7,7 @@ import { services } from "@/data/services";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Nos services — Pose de parquet, PVC, moquette",
+  title: "Nos services - Pose de parquet, PVC, moquette",
   description:
     "Découvrez nos prestations : pose de parquet massif, stratifié, PVC, moquette, ponçage et vitrification. Artisan à Strasbourg.",
 };

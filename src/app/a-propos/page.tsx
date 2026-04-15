@@ -8,7 +8,7 @@ import Button from "@/components/ui/Button";
 import { VALUES, CONTACT, GOOGLE_MAPS_EMBED_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "À propos de Lucas ZORRILLA — Artisan poseur de sol",
+  title: "À propos de Lucas ZORRILLA - Artisan poseur de sol",
   description:
     "Découvrez le parcours de Lucas, artisan passionné spécialisé en revêtement de sol depuis plus de 5 ans à Strasbourg.",
 };
@@ -67,7 +67,7 @@ export default function AProposPage() {
                 Lucas ZORRILLA
               </h2>
               <p className="text-primary font-medium mb-6">
-                Artisan poseur de sol — Passionné depuis + de 5 ans
+                Artisan poseur de sol - Passionné depuis + de 5 ans
               </p>
               <div className="space-y-4 text-neutral leading-relaxed">
                 <p>
@@ -84,7 +84,7 @@ export default function AProposPage() {
                 </p>
                 <p>
                   Son approche : écouter, conseiller, et réaliser un travail dont
-                  il peut être fier — et dont vous serez pleinement satisfait.
+                  il peut être fier - et dont vous serez pleinement satisfait.
                 </p>
               </div>
               <div className="mt-8">

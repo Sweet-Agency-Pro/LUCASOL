@@ -49,7 +49,7 @@ export default function WhyChooseUs() {
           >
             <Image
               src="/images/realisations/parquet-02.jpg"
-              alt="Réalisation LUCASOL — Parquet bâton rompu"
+              alt="Réalisation LUCASOL - Parquet bâton rompu"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"

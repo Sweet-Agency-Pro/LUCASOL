@@ -58,7 +58,7 @@ export default function AdminDashboard() {
         <p className="text-neutral text-sm leading-relaxed">
           Ce panneau d&apos;administration vous permet de gérer vos avis clients,
           vos réalisations et les demandes de contact reçues via votre site web.
-          Les données affichées ici sont des démonstrations — elles seront remplacées
+          Les données affichées ici sont des démonstrations - elles seront remplacées
           par vos vraies données une fois le site en ligne.
         </p>
       </Card>

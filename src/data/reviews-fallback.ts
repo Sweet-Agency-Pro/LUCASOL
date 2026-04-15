@@ -139,7 +139,7 @@ export const reviewsFallback: Review[] = [
     client: "Perrine Huck",
     rating: 5,
     comment:
-      "Réactivité, Ponctualité, Qualité, Professionnalisme, Prix — tout y est.",
+      "Réactivité, Ponctualité, Qualité, Professionnalisme, Prix - tout y est.",
     date: "Avril 2022",
     source: "google",
   },

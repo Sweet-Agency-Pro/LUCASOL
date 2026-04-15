@@ -41,7 +41,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">
-            Pose de parquet, PVC, moquette — Ponçage et vitrification.
+            Pose de parquet, PVC, moquette - Ponçage et vitrification.
             Un savoir-faire artisanal au service de vos sols.
           </p>
 

@@ -32,7 +32,7 @@ export default function ReviewsSection() {
             <StarRating rating={5} size={20} />
             <span className="text-2xl font-bold text-neutral-dark">5.0 / 5</span>
           </div>
-          <span className="text-neutral">—</span>
+          <span className="text-neutral">-</span>
           <span className="text-neutral">{reviews.length} avis</span>
           <span className="inline-flex items-center gap-1 text-xs text-neutral bg-gray-100 px-3 py-1 rounded-full">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">

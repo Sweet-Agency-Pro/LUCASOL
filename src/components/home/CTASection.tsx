@@ -33,7 +33,7 @@ export default function CTASection() {
             Un projet de sol ? Parlons-en !
           </h2>
           <p className="text-gray-200 text-lg mb-8">
-            Devis gratuit — Réponse sous 24h
+            Devis gratuit - Réponse sous 24h
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button href={CONTACT.phoneLink} size="lg">
