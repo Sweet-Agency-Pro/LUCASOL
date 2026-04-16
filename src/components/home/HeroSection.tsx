@@ -14,7 +14,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/hero-desktop.jpg"
+          src="/images/hero/hero-desktop2.webp"
           alt="Parquet posé par LUCASOL"
           fill
           className="object-cover"
@@ -32,12 +32,22 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-3xl"
         >
-          <Badge className="mb-6 bg-primary text-white">Devis gratuit</Badge>
+          <Badge className="mb-6 bg-primary text-white" variant="hero">Devis gratuit</Badge>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             Votre spécialiste en{" "}
             <span className="text-primary">revêtement de sol</span>{" "}
-            à Strasbourg
+            à Strasbourg{" "}
+            <motion.a
+              href={CONTACT.phoneLink}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="hidden md:inline-flex ml-6 align-middle items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-5 py-3 text-white hover:bg-primary/20 transition-colors text-base font-semibold"
+            >
+              <Phone size={20} className="text-primary" />
+              <span>{CONTACT.phone}</span>
+            </motion.a>
           </h1>
 
           <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">
@@ -55,17 +65,7 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Phone badge */}
-        <motion.a
-          href={CONTACT.phoneLink}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-5 py-3 text-white hover:bg-primary/20 transition-colors"
-        >
-          <Phone size={20} className="text-primary" />
-          <span className="font-semibold">{CONTACT.phone}</span>
-        </motion.a>
+
       </Container>
 
       {/* Scroll indicator */}

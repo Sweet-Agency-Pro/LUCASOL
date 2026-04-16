@@ -26,22 +26,32 @@ export default function Header() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm"
+            ? "bg-white/95 backdrop-blur-md shadow-sm header-scrolled"
             : "bg-transparent"
         )}
       >
         <Container>
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
-              <Image
-                src="/images/logo/lucasol-logo.png"
-                alt="LUCASOL"
-                width={140}
-                height={40}
-                className="h-10 w-auto"
-                priority
-              />
+            <Link href="/" className="flex items-center gap-2 -ml-4 sm:-ml-6 lg:-ml-20">
+              <span className={cn("inline-flex items-center justify-center rounded-md p-1 logo-bg", isScrolled && "logo-scrolled")}>
+                <Image
+                  src="/images/logo/logo1.webp"
+                  alt="LUCASOL"
+                  width={140}
+                  height={40}
+                  className="h-10 w-auto logo-img"
+                  priority
+                />
+                <Image
+                  src="/images/logo/lucasol-logo-text1.webp"
+                  alt="Lucasol texte"
+                  width={140}
+                  height={40}
+                  className="h-6 w-auto ml-2 hidden sm:inline-block logo-text"
+                  priority
+                />
+              </span>
             </Link>
 
             {/* Desktop Nav */}
@@ -63,7 +73,7 @@ export default function Header() {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-4 -mr-12 sm:-mr-12 lg:-mr-20">
               <Button href={CONTACT.phoneLink} size="sm">
                 <Phone size={16} />
                 {CONTACT.phone}

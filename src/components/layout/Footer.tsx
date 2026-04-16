@@ -116,10 +116,10 @@ export default function Footer() {
               Politique de confidentialité
             </Link>
           </div>
-          <p>
+          {/* <p>
             Site réalisé par{" "}
             <span className="text-primary font-medium">Agence Sweet</span>
-          </p>
+          </p> */}
         </Container>
       </div>
     </footer>

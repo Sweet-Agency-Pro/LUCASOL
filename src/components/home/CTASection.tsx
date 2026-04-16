@@ -36,9 +36,9 @@ export default function CTASection() {
             Devis gratuit - Réponse sous 24h
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href={CONTACT.phoneLink} size="lg">
+            <Button href={CONTACT.phoneLink} size="lg" className="px-10">
               <Phone size={20} />
-              Appelez-nous : {CONTACT.phone}
+              Appelez-nous : <br />{CONTACT.phone}
             </Button>
             <Button href="/contact" variant="outline" size="lg">
               Envoyez-nous un message

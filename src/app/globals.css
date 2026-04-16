@@ -26,9 +26,14 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
   font-family: var(--font-heading), system-ui, sans-serif;
-  color: var(--color-neutral-dark);
+  color: var(--color-white);
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  color: var(--color-primary-dark);
 }
 
 /* Hide scrollbar on slider containers */
@@ -47,4 +52,44 @@ h1, h2, h3, h4, h5, h6 {
   cursor: ew-resize;
   user-select: none;
   -webkit-user-select: none;
+}
+
+/* Logo enhancement: backdrop blur + subtle shadow + halo */
+.logo-bg {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 6px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  transition: background-color .2s ease, box-shadow .2s ease, transform .08s ease;
+}
+.logo-bg:active { transform: translateY(1px); }
+
+.logo-img {
+  filter: drop-shadow(0 6px 8px rgba(0,0,0,0.45)) brightness(1.05) contrast(1.05);
+  transition: filter .15s ease;
+}
+
+.logo-bg { gap: 8px; }
+
+.logo-text {
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.35)) brightness(1.25) contrast(1.06);
+  transition: filter .15s ease, opacity .15s ease;
+}
+
+/* When header is in reveal/scrolled state, remove logo blur/backdrop and heavy shadows */
+.header-scrolled .logo-bg {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
+.header-scrolled .logo-img,
+.header-scrolled .logo-text {
+  filter: none;
 }

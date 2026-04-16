@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
             className="relative aspect-[4/3] rounded-xl overflow-hidden"
           >
             <Image
-              src="/images/realisations/parquet-02.jpg"
+              src="/images/realisations/parquet-05.jpg"
               alt="Réalisation LUCASOL - Parquet bâton rompu"
               fill
               className="object-cover"
