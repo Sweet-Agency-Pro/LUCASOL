@@ -5,6 +5,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import { services } from "@/data/services";
 import { CONTACT } from "@/lib/constants";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Nos services - Pose de parquet, PVC, moquette",
@@ -32,7 +33,21 @@ export default function ServicesPage() {
       {/* Hero compact */}
       <section className="bg-neutral-dark pt-32 pb-16">
         <Container>
-          <p className="text-primary text-sm font-medium mb-2">Accueil &gt; Services</p>
+          <nav aria-label="Breadcrumb" className="mb-2">
+            <ol className="flex items-center gap-2 text-sm font-medium">
+              <li>
+                <Link href="/" className="text-primary hover:underline">
+                  Accueil
+                </Link>
+              </li>
+              <li className="text-gray-400">&gt;</li>
+              <li>
+                <Link href="/services" className="text-primary hover:underline" aria-current="page">
+                  Services
+                </Link>
+              </li>
+            </ol>
+          </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-white">Nos services</h1>
           <p className="text-gray-300 mt-4 max-w-xl">
             Un savoir-faire complet pour tous vos projets de sol

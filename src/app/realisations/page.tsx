@@ -9,6 +9,7 @@ import ImageModal from "@/components/realisations/ImageModal";
 import { realisations } from "@/data/realisations";
 import type { RealisationCategory } from "@/types";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const filters: { label: string; value: RealisationCategory; icon: React.ReactNode }[] = [
   { label: "Tous", value: "all", icon: <LayoutGrid size={16} /> },
@@ -34,7 +35,21 @@ export default function RealisationsPage() {
       {/* Hero compact */}
       <section className="bg-neutral-dark pt-32 pb-16">
         <Container>
-          <p className="text-primary text-sm font-medium mb-2">Accueil &gt; Réalisations</p>
+          <nav aria-label="Breadcrumb" className="mb-2">
+            <ol className="flex items-center gap-2 text-sm font-medium">
+              <li>
+                <Link href="/" className="text-primary hover:underline">
+                  Accueil
+                </Link>
+              </li>
+              <li className="text-gray-400">&gt;</li>
+              <li>
+                <Link href="/realisations" className="text-primary hover:underline" aria-current="page">
+                  Réalisations
+                </Link>
+              </li>
+            </ol>
+          </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-white">Nos réalisations</h1>
           <p className="text-gray-300 mt-4 max-w-xl">
             Chaque sol raconte une histoire

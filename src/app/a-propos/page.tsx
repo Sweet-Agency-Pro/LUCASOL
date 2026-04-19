@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Shield, Eye, Heart, Brush, MapPin } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
@@ -41,7 +42,21 @@ export default function AProposPage() {
       {/* Hero compact */}
       <section className="bg-neutral-dark pt-32 pb-16">
         <Container>
-          <p className="text-primary text-sm font-medium mb-2">Accueil &gt; À propos</p>
+          <nav aria-label="Breadcrumb" className="mb-2">
+            <ol className="flex items-center gap-2 text-sm font-medium">
+              <li>
+                <Link href="/" className="text-primary hover:underline">
+                  Accueil
+                </Link>
+              </li>
+              <li className="text-gray-400">&gt;</li>
+              <li>
+                <Link href="/a-propos" className="text-primary hover:underline" aria-current="page">
+                  À propos
+                </Link>
+              </li>
+            </ol>
+          </nav>
           <h1 className="text-4xl md:text-5xl font-bold text-white">À propos</h1>
           <p className="text-gray-300 mt-4 max-w-xl">
             Découvrez l&apos;artisan derrière LUCASOL

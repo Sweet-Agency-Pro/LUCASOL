@@ -33,7 +33,7 @@ export default function Header() {
         <Container>
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 -ml-4 sm:-ml-6 lg:-ml-20">
+            <Link href="/" className="flex items-center gap-2 -ml-4 sm:-ml-6 lg:-ml-60">
               <span className={cn("inline-flex items-center justify-center rounded-md p-1 logo-bg", isScrolled && "logo-scrolled")}>
                 <Image
                   src="/images/logo/logo1.webp"
@@ -73,7 +73,7 @@ export default function Header() {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center gap-4 -mr-12 sm:-mr-12 lg:-mr-20">
+            <div className="hidden lg:flex items-center gap-4 -mr-12 sm:-mr-12 lg:-mr-60">
               <Button href={CONTACT.phoneLink} size="sm">
                 <Phone size={16} />
                 {CONTACT.phone}
