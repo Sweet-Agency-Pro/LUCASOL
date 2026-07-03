@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Phone, Menu, X } from "lucide-react";
 import { NAV_LINKS, CONTACT } from "@/lib/constants";
 import Container from "@/components/ui/Container";
@@ -11,6 +12,8 @@ import MobileMenu from "./MobileMenu";
 import { cn } from "@/lib/utils";
 
 export default function Header() {
+  const pathname = usePathname();
+  const isAdmin = pathname?.startsWith("/admin");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
@@ -20,12 +23,14 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const showScrolledStyle = isScrolled || isAdmin;
+
   return (
     <>
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled
+          showScrolledStyle
             ? "bg-white/95 backdrop-blur-md shadow-sm header-scrolled"
             : "bg-transparent"
         )}
@@ -34,7 +39,7 @@ export default function Header() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 -ml-4 sm:-ml-6 lg:-ml-60">
-              <span className={cn("inline-flex items-center justify-center rounded-md p-1 logo-bg", isScrolled && "logo-scrolled")}>
+              <span className={cn("inline-flex items-center justify-center rounded-md p-1 logo-bg", showScrolledStyle && "logo-scrolled")}>
                 <Image
                   src="/images/logo/logo1.webp"
                   alt="LUCASOL"
@@ -62,7 +67,7 @@ export default function Header() {
                   href={link.href}
                   className={cn(
                     "text-[15px] font-medium transition-colors duration-200",
-                    isScrolled
+                    showScrolledStyle
                       ? "text-neutral hover:text-primary"
                       : "text-white hover:text-primary-light"
                   )}
@@ -88,7 +93,7 @@ export default function Header() {
             >
               <Menu
                 size={28}
-                className={isScrolled ? "text-neutral-dark" : "text-white"}
+                className={showScrolledStyle ? "text-neutral-dark" : "text-white"}
               />
             </button>
           </div>
