@@ -106,24 +106,6 @@ export default function ServicesPage() {
         </section>
       ))}
 
-      {/* Encadré "Ce que nous ne faisons PAS" */}
-      <section className="py-16 bg-background">
-        <Container>
-          <div className="max-w-2xl mx-auto bg-error-light border border-error/20 rounded-xl p-8 text-center">
-            <div className="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center mx-auto mb-4">
-              <X size={24} className="text-error" />
-            </div>
-            <h3 className="text-xl font-semibold text-neutral-dark mb-3">
-              Ce que nous ne réalisons pas
-            </h3>
-            <p className="text-neutral">
-              Nous ne réalisons pas la pose de <strong>carrelage</strong>. Pour ce type
-              de travaux, nous vous orientons vers un confrère de confiance.
-            </p>
-          </div>
-        </Container>
-      </section>
-
       {/* CTA */}
       <section className="py-16 bg-primary">
         <Container className="text-center">

@@ -89,22 +89,6 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      {/* Phone CTA prominent */}
-      <section className="py-6 bg-primary-light">
-        <Container>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
-            <Phone size={28} className="text-primary" />
-            <div>
-              <p className="text-sm text-neutral">Appelez-nous directement !</p>
-              <a href={CONTACT.phoneLink} className="text-2xl md:text-3xl font-bold text-neutral-dark hover:text-primary transition-colors">
-                {CONTACT.phone}
-              </a>
-            </div>
-            <span className="text-sm text-neutral">- Réponse rapide &middot; Devis gratuit</span>
-          </div>
-        </Container>
-      </section>
-
       {/* Form + Info */}
       <section className="py-20 bg-background">
         <Container>

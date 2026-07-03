@@ -12,7 +12,7 @@ export const CONTACT = {
   region: "Strasbourg et Eurométropole",
   instagram: "artisan.lucasol",
   instagramUrl: "https://www.instagram.com/artisan.lucasol",
-  hours: "Lun–Ven : 8h–18h / Sam : sur RDV",
+  hours: "Lun–Ven : 8h–17h / Sam : sur RDV",
 } as const;
 
 export const NAV_LINKS = [

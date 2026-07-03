@@ -38,17 +38,17 @@ export default function Header() {
                 <Image
                   src="/images/logo/logo1.webp"
                   alt="LUCASOL"
-                  width={140}
+                  width={39}
                   height={40}
-                  className="h-10 w-auto logo-img"
+                  className="logo-img"
                   priority
                 />
                 <Image
                   src="/images/logo/lucasol-logo-text1.webp"
                   alt="Lucasol texte"
-                  width={140}
-                  height={40}
-                  className="h-6 w-auto ml-2 hidden sm:inline-block logo-text"
+                  width={102}
+                  height={24}
+                  className="ml-2 hidden sm:inline-block logo-text"
                   priority
                 />
               </span>
