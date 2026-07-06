@@ -20,7 +20,7 @@ export default function MentionsLegalesPage() {
           <p>
             <strong>LUCASOL</strong><br />
             Lucas ZORRILLA - Artisan poseur de sol<br />
-            Griesheim-sur-Souffel / Souffelweyersheim<br />
+            Dingsheim<br />
             Téléphone : 06 43 13 54 92<br />
             Email : artisan.lucasol@gmail.com
           </p>

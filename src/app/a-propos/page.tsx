@@ -11,7 +11,7 @@ import { VALUES, CONTACT, GOOGLE_MAPS_EMBED_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "À propos de Lucas ZORRILLA - Artisan poseur de sol",
   description:
-    "Découvrez le parcours de Lucas, artisan passionné spécialisé en revêtement de sol depuis plus de 5 ans à Strasbourg.",
+    "Découvrez le parcours de Lucas, artisan passionné spécialisé en revêtement de sol depuis plus de 20 ans à Strasbourg.",
 };
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -24,7 +24,7 @@ const iconMap: Record<string, React.ReactNode> = {
 const cities = [
   "Strasbourg",
   "Souffelweyersheim",
-  "Griesheim-sur-Souffel",
+  "Dingsheim",
   "Mundolsheim",
   "Schiltigheim",
   "Hoenheim",
@@ -82,7 +82,7 @@ export default function AProposPage() {
                 Lucas ZORRILLA
               </h2>
               <p className="text-primary font-medium mb-6">
-                Artisan poseur de sol - Passionné depuis + de 5 ans
+                Artisan poseur de sol - Passionné depuis + de 20 ans
               </p>
               <div className="space-y-4 text-neutral leading-relaxed">
                 <p>
@@ -92,7 +92,7 @@ export default function AProposPage() {
                   accessible à chaque client.
                 </p>
                 <p>
-                  Basé à Griesheim-sur-Souffel, Lucas intervient dans toute
+                  Basé à Dingsheim, Lucas intervient dans toute
                   l&apos;Eurométropole de Strasbourg. Chaque chantier est abordé avec
                   le même soin du détail, qu&apos;il s&apos;agisse d&apos;un salon de
                   particulier ou d&apos;un espace commercial.
@@ -156,7 +156,7 @@ export default function AProposPage() {
             {/* Cities */}
             <div>
               <h3 className="text-xl font-semibold text-neutral-dark mb-6">
-                Quelques villes où nous intervenons
+                Quelques villes où nous intervenons régulièrement
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {cities.map((city) => (
@@ -167,8 +167,7 @@ export default function AProposPage() {
                 ))}
               </div>
               <p className="mt-6 text-sm text-gray-400">
-                Vous n&apos;êtes pas dans la liste ? Contactez-nous, nous intervenons
-                potentiellement dans un rayon de 30 km autour de Strasbourg.
+                Vous n&apos;êtes pas dans la liste ? Contactez-nous, nous intervenons<br />dans tout le Bas-Rhin.
               </p>
             </div>
           </div>
@@ -181,13 +180,24 @@ export default function AProposPage() {
           <h3 className="text-xl font-semibold text-neutral-dark mb-6">
             Ils nous font confiance
           </h3>
-          <div className="flex flex-wrap justify-center gap-8 text-neutral">
-            <span className="px-6 py-3 bg-white rounded-lg shadow-sm font-medium">
-              SENSAS Mundolsheim
-            </span>
-            <span className="px-6 py-3 bg-white rounded-lg shadow-sm font-medium">
-              RIVAL QUIZ Mundolsheim
-            </span>
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-neutral">
+            {[
+              "SENSAS Mundolsheim",
+              "RIVAL QUIZ Mundolsheim",
+              "La Forêt Schiltigheim",
+              "Enyo & Gaïa Immobilier",
+              "Presta'Nett",
+              "Netimmo",
+              "Le Roi Merlin",
+              "Esprit Intérieur",
+            ].map((name) => (
+              <span
+                key={name}
+                className="px-5 py-3 bg-white rounded-lg shadow-sm font-medium text-sm sm:text-base"
+              >
+                {name}
+              </span>
+            ))}
           </div>
         </Container>
       </section>

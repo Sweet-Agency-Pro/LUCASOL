@@ -1,6 +1,6 @@
 "use client";
 
-import { Award, Star, ThumbsUp, Ruler } from "lucide-react";
+import { Award, Star, ThumbsUp } from "lucide-react";
 import Container from "@/components/ui/Container";
 import { STATS } from "@/lib/constants";
 import { motion, useInView } from "framer-motion";
@@ -10,7 +10,6 @@ const iconMap: Record<string, React.ReactNode> = {
   Award: <Award size={28} />,
   Star: <Star size={28} />,
   ThumbsUp: <ThumbsUp size={28} />,
-  Ruler: <Ruler size={28} />,
 };
 
 function AnimatedValue({ value }: { value: string }) {
@@ -50,7 +49,7 @@ export default function StatsSection() {
   return (
     <section className="bg-primary py-16">
       <Container>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-3 gap-6 sm:gap-8">
           {STATS.map((stat, i) => (
             <motion.div
               key={stat.label}

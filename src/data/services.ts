@@ -70,7 +70,6 @@ export const services: Service[] = [
       "Huilage",
       "Cirage",
       "Réparation de lames",
-      "Traitement des joints",
     ],
     slug: "poncage",
   },

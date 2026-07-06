@@ -10,7 +10,7 @@ export default function JsonLd() {
     url: "https://lucasol.fr",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Griesheim-sur-Souffel",
+      addressLocality: "Dingsheim",
       addressRegion: "Grand Est",
       postalCode: "67370",
       addressCountry: "FR",

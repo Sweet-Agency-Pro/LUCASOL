@@ -8,7 +8,7 @@ export const CONTACT = {
   phoneLink: "tel:+33643135492",
   email: "artisan.lucasol@gmail.com",
   emailLink: "mailto:artisan.lucasol@gmail.com",
-  address: "Griesheim / Souffelweyersheim",
+  address: "Dingsheim",
   region: "Strasbourg et Eurométropole",
   instagram: "artisan.lucasol",
   instagramUrl: "https://www.instagram.com/artisan.lucasol",
@@ -24,10 +24,9 @@ export const NAV_LINKS = [
 ] as const;
 
 export const STATS = [
-  { value: "5+", label: "Années d'expérience", icon: "Award" },
+  { value: "20+", label: "Années d'expérience", icon: "Award" },
   { value: "18", label: "Avis 5 étoiles", icon: "Star" },
   { value: "100%", label: "Clients satisfaits", icon: "ThumbsUp" },
-  { value: "500m²+", label: "De sol posé", icon: "Ruler" },
 ] as const;
 
 export const VALUES = [
@@ -63,4 +62,4 @@ export const WHY_CHOOSE_US = [
 ] as const;
 
 export const GOOGLE_MAPS_EMBED_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42096.25!2d7.68!3d48.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c4f3d4f0e4a7%3A0x0!2sGriesheim-sur-Souffel!5e0!3m2!1sfr!2sfr!4v1";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42096.25!2d7.68!3d48.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c4f3d4f0e4a7%3A0x0!2sDingsheim!5e0!3m2!1sfr!2sfr!4v1";
