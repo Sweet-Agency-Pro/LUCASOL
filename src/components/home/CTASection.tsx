@@ -37,8 +37,8 @@ export default function CTASection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button href={CONTACT.phoneLink} size="lg" className="px-8 sm:px-10">
-              <Phone size={20} />
-              Appelez-nous — {CONTACT.phone}
+              <Phone size={20} className="mr-1" />
+              Appelez-nous<br />{CONTACT.phone}
             </Button>
             <Button href="/contact" variant="outline" size="lg">
               Envoyez-nous un message
