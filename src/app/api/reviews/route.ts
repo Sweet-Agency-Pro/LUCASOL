@@ -1,33 +1,38 @@
 import { NextResponse } from "next/server";
+import { createServerSupabase } from "@/lib/supabase-server";
 import { reviewsFallback } from "@/data/reviews-fallback";
 
 export async function GET() {
-  // In production, fetch Google Reviews via Places API
-  // const GOOGLE_PLACE_ID = process.env.GOOGLE_PLACE_ID;
-  // const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
-  //
-  // if (GOOGLE_PLACE_ID && GOOGLE_API_KEY) {
-  //   try {
-  //     const res = await fetch(
-  //       `https://maps.googleapis.com/maps/api/place/details/json?place_id=${GOOGLE_PLACE_ID}&fields=reviews,rating,user_ratings_total&key=${GOOGLE_API_KEY}&language=fr`
-  //     );
-  //     const data = await res.json();
-  //     if (data.result?.reviews) {
-  //       return NextResponse.json({
-  //         reviews: data.result.reviews,
-  //         rating: data.result.rating,
-  //         total: data.result.user_ratings_total,
-  //       });
-  //     }
-  //   } catch (error) {
-  //     console.error("Google Places API error:", error);
-  //   }
-  // }
+  try {
+    const supabase = await createServerSupabase();
+    const { data, error } = await supabase
+      .from("reviews")
+      .select("id, client, rating, comment, date, source")
+      .eq("visible", true)
+      .order("created_at", { ascending: false });
 
-  // Fallback to CSV data
-  return NextResponse.json({
-    reviews: reviewsFallback,
-    rating: 5.0,
-    total: reviewsFallback.length,
-  });
+    if (error || !data || data.length === 0) {
+      // Fallback sur les données statiques
+      return NextResponse.json({
+        reviews: reviewsFallback,
+        rating: 5.0,
+        total: reviewsFallback.length,
+        source: "fallback",
+      });
+    }
+
+    return NextResponse.json({
+      reviews: data,
+      rating: 5.0,
+      total: data.length,
+      source: "supabase",
+    });
+  } catch {
+    return NextResponse.json({
+      reviews: reviewsFallback,
+      rating: 5.0,
+      total: reviewsFallback.length,
+      source: "fallback",
+    });
+  }
 }

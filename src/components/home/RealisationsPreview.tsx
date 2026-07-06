@@ -6,11 +6,13 @@ import { ZoomIn } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Button from "@/components/ui/Button";
-import { realisations } from "@/data/realisations";
+import { realisations as realisationsFallback } from "@/data/realisations";
 import { motion } from "framer-motion";
+import type { Realisation } from "@/types";
 
-export default function RealisationsPreview() {
-  const preview = realisations.slice(0, 6);
+export default function RealisationsPreview({ realisations: realisationsProp }: { realisations?: Realisation[] }) {
+  const data = realisationsProp && realisationsProp.length > 0 ? realisationsProp : realisationsFallback;
+  const preview = data.slice(0, 6);
 
   return (
     <section className="py-20 md:py-28 bg-neutral-light">

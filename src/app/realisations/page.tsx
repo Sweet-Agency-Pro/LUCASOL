@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { LayoutGrid, TreeDeciduous, Layers, Sparkles, ArrowLeftRight, ZoomIn } from "lucide-react";
 import Container from "@/components/ui/Container";
 import BeforeAfterSlider from "@/components/realisations/BeforeAfterSlider";
 import ImageModal from "@/components/realisations/ImageModal";
-import { realisations } from "@/data/realisations";
-import type { RealisationCategory } from "@/types";
+import { realisations as realisationsFallback } from "@/data/realisations";
+import type { Realisation, RealisationCategory } from "@/types";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -23,6 +23,17 @@ export default function RealisationsPage() {
   const [activeFilter, setActiveFilter] = useState<RealisationCategory>("all");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
+  const [realisations, setRealisations] = useState<Realisation[]>(realisationsFallback);
+
+  // Fetch depuis Supabase via l'API route (avec fallback automatique)
+  useEffect(() => {
+    fetch("/api/realisations")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.realisations?.length > 0) setRealisations(data.realisations);
+      })
+      .catch(() => {}); // Fallback silencieux sur les données statiques
+  }, []);
 
   const filtered = activeFilter === "all"
     ? realisations

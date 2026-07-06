@@ -2,9 +2,19 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { LayoutDashboard, Star, Image, MessageSquare, ArrowLeft, Menu, X } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import {
+  LayoutDashboard,
+  Star,
+  Image,
+  MessageSquare,
+  ArrowLeft,
+  Menu,
+  X,
+  LogOut,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
+import { createClient } from "@/lib/supabase";
 
 const adminLinks = [
   { label: "Dashboard", href: "/admin", icon: <LayoutDashboard size={18} /> },
@@ -13,13 +23,25 @@ const adminLinks = [
   { label: "Demandes", href: "/admin/demandes", icon: <MessageSquare size={18} /> },
 ];
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
+  const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const handleLogout = async () => {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    router.push("/admin/login");
+    router.refresh();
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
-      {/* Mobile toggle */}
+      {/* Bouton mobile */}
       <div className="lg:hidden fixed top-20 left-4 z-40">
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -63,7 +85,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             ))}
           </nav>
 
-          <div className="absolute bottom-6 left-6 right-6">
+          <div className="absolute bottom-6 left-6 right-6 space-y-2">
             <Link
               href="/"
               className="flex items-center gap-2 text-sm text-neutral hover:text-primary transition-colors"
@@ -71,13 +93,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <ArrowLeft size={16} />
               Retour au site
             </Link>
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-2 text-sm text-neutral hover:text-error transition-colors w-full"
+            >
+              <LogOut size={16} />
+              Se déconnecter
+            </button>
           </div>
         </aside>
 
-        {/* Content */}
-        <div className="flex-1 lg:ml-64 p-6 lg:p-8">
-          {children}
-        </div>
+        {/* Contenu */}
+        <div className="flex-1 lg:ml-64 p-6 lg:p-8">{children}</div>
       </div>
     </div>
   );

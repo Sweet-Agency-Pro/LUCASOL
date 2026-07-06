@@ -8,6 +8,7 @@ import Card from "@/components/ui/Card";
 import { reviewsFallback } from "@/data/reviews-fallback";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import type { Review } from "@/types";
 
 const cardVariants = {
   initial: (dir: number) => ({
@@ -24,8 +25,8 @@ const cardVariants = {
   }),
 };
 
-export default function ReviewsSection() {
-  const reviews = reviewsFallback;
+export default function ReviewsSection({ reviews: reviewsProp }: { reviews?: Review[] }) {
+  const reviews = reviewsProp && reviewsProp.length > 0 ? reviewsProp : reviewsFallback;
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1); // 1 = suivant, -1 = précédent
   const [visibleCount, setVisibleCount] = useState(3);
@@ -94,7 +95,7 @@ export default function ReviewsSection() {
           </span>
         </div>
 
-        {/* Carousel — chaque carte anime individuellement */}
+        {/* Carousel - chaque carte anime individuellement */}
         <div className="relative px-10 md:px-0">
           {/* overflow-hidden clipe les cartes qui entrent/sortent */}
           <div className="overflow-hidden">
