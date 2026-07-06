@@ -34,7 +34,7 @@ export default function HeroSection() {
         >
           <Badge className="mb-6 bg-primary text-white" variant="hero">Devis gratuit</Badge>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-5 sm:mb-6 leading-tight">
             Votre spécialiste en{" "}
             <span className="text-primary">revêtement de sol</span>{" "}
             à Strasbourg{" "}
@@ -50,7 +50,7 @@ export default function HeroSection() {
             </motion.a>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-7 sm:mb-8 max-w-2xl">
             Pose de parquet, PVC, moquette - Ponçage et vitrification.
             Un savoir-faire artisanal au service de vos sols.
           </p>

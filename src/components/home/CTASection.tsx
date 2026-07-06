@@ -29,17 +29,16 @@ export default function CTASection() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
             Un projet de sol ? Parlons-en !
           </h2>
           <p className="text-gray-200 text-lg mb-8">
             Devis gratuit - Réponse sous 24h
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href={CONTACT.phoneLink} size="lg" className="px-10">
-              <Phone size={20} className="mr-4"/>
-              Appelez-nous <br />
-              {CONTACT.phone}
+            <Button href={CONTACT.phoneLink} size="lg" className="px-8 sm:px-10">
+              <Phone size={20} />
+              Appelez-nous — {CONTACT.phone}
             </Button>
             <Button href="/contact" variant="outline" size="lg">
               Envoyez-nous un message

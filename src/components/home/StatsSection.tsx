@@ -50,7 +50,7 @@ export default function StatsSection() {
   return (
     <section className="bg-primary py-16">
       <Container>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {STATS.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -63,7 +63,7 @@ export default function StatsSection() {
               <div className="flex justify-center mb-3 opacity-80">
                 {iconMap[stat.icon]}
               </div>
-              <div className="text-3xl md:text-4xl font-bold mb-1">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1">
                 <AnimatedValue value={stat.value} />
               </div>
               <div className="text-sm opacity-90">{stat.label}</div>

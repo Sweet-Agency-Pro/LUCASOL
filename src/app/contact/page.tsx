@@ -82,7 +82,7 @@ export default function ContactPage() {
               </li>
             </ol>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Contact</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Contact</h1>
           <p className="text-gray-300 mt-4 max-w-xl">
             Devis gratuit - Réponse rapide
           </p>
@@ -224,7 +224,7 @@ export default function ContactPage() {
                 <h3 className="font-semibold text-neutral-dark mb-4">Informations</h3>
                 <ul className="space-y-4">
                   <li>
-                    <a href={CONTACT.emailLink} className="flex items-center gap-3 text-sm text-neutral hover:text-primary transition-colors">
+                    <a href={CONTACT.emailLink} className="flex items-center gap-3 text-sm text-neutral hover:text-primary transition-colors break-all">
                       <Mail size={18} className="text-primary shrink-0" />
                       {CONTACT.email}
                     </a>

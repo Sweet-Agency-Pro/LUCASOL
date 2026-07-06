@@ -10,7 +10,7 @@ export default function PolitiqueConfidentialitePage() {
     <>
       <section className="bg-neutral-dark pt-32 pb-16">
         <Container>
-          <h1 className="text-4xl font-bold text-white">Politique de confidentialité</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold text-white">Politique de confidentialité</h1>
         </Container>
       </section>
 

@@ -57,7 +57,7 @@ export default function AProposPage() {
               </li>
             </ol>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">À propos</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">À propos</h1>
           <p className="text-gray-300 mt-4 max-w-xl">
             Découvrez l&apos;artisan derrière LUCASOL
           </p>
@@ -78,7 +78,7 @@ export default function AProposPage() {
               />
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-neutral-dark mb-2">
+              <h2 className="text-2xl sm:text-3xl font-bold text-neutral-dark mb-2">
                 Lucas ZORRILLA
               </h2>
               <p className="text-primary font-medium mb-6">

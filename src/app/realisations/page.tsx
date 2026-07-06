@@ -50,7 +50,7 @@ export default function RealisationsPage() {
               </li>
             </ol>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Nos réalisations</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Nos réalisations</h1>
           <p className="text-gray-300 mt-4 max-w-xl">
             Chaque sol raconte une histoire
           </p>

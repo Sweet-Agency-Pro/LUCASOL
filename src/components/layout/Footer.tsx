@@ -89,7 +89,7 @@ export default function Footer() {
               <li>
                 <a
                   href={CONTACT.emailLink}
-                  className="flex items-center gap-3 text-sm hover:text-primary transition-colors"
+                  className="flex items-center gap-3 text-sm hover:text-primary transition-colors break-all"
                 >
                   <Mail size={16} className="text-primary shrink-0" />
                   {CONTACT.email}

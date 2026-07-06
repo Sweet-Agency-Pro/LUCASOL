@@ -48,7 +48,7 @@ export default function ServicesPage() {
               </li>
             </ol>
           </nav>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Nos services</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Nos services</h1>
           <p className="text-gray-300 mt-4 max-w-xl">
             Un savoir-faire complet pour tous vos projets de sol
           </p>
@@ -81,7 +81,7 @@ export default function ServicesPage() {
                   <div className="w-16 h-16 rounded-xl bg-primary-light flex items-center justify-center">
                     {iconMap[service.icon]}
                   </div>
-                  <h2 className="text-3xl font-bold text-neutral-dark">{service.title}</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-neutral-dark">{service.title}</h2>
                 </div>
 
                 <p className="text-neutral leading-relaxed mb-6">
@@ -109,7 +109,7 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="py-16 bg-primary">
         <Container className="text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Un projet en tête ?
           </h2>
           <p className="text-white/80 mb-8">
