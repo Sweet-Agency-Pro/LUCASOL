@@ -22,8 +22,8 @@ const iconMap: Record<string, React.ReactNode> = {
 
 const serviceImages: Record<string, string> = {
   parquet: "/images/services/parquet.jpg",
-  pvc: "/images/services/pvc.jpg",
-  moquette: "/images/services/moquette.jpg",
+  pvc: "/images/services/pvc-empty.jpg",
+  moquette: "/images/services/moquette-bureau.jpg",
   poncage: "/images/services/poncage.jpg",
 };
 
@@ -109,10 +109,10 @@ export default function ServicesPage() {
       {/* CTA */}
       <section className="py-16 bg-primary">
         <Container className="text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+          <p className="text-2xl sm:text-3xl font-bold text-white mb-4">
             Un projet en tête ?
-          </h2>
-          <p className="text-white/80 mb-8">
+          </p>
+          <p className="text-white mb-8">
             Appelez-nous ou demandez un devis gratuit
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

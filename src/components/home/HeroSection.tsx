@@ -14,7 +14,7 @@ export default function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/hero-desktop2.webp"
+          src="/images/hero/hero-parquet-chevron.jpg"
           alt="Parquet posé par LUCASOL"
           fill
           className="object-cover"
@@ -30,7 +30,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-3xl"
+          className="max-w-2xl"
         >
           <Badge className="mb-6 bg-primary text-white" variant="hero">Devis gratuit</Badge>
 
@@ -51,7 +51,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-7 sm:mb-8 max-w-2xl">
-            Pose de parquet, PVC, moquette - Ponçage et vitrification.
+            Pose de parquet, PVC, moquette - Ponçage et vitrification.<br />
             Un savoir-faire artisanal au service de vos sols.
           </p>
 
