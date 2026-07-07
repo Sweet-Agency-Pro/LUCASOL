@@ -1,4 +1,31 @@
-export default function JsonLd() {
+import { createClient } from "@supabase/supabase-js";
+
+/** Note moyenne et nombre d'avis visibles, avec fallback statique. */
+async function getReviewStats() {
+  const fallback = { ratingValue: "5", reviewCount: "18" };
+  try {
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
+    const { data } = await supabase
+      .from("reviews")
+      .select("rating")
+      .eq("visible", true);
+    if (!data || data.length === 0) return fallback;
+    const average =
+      data.reduce((sum, r) => sum + r.rating, 0) / data.length;
+    return {
+      ratingValue: String(Math.round(average * 10) / 10),
+      reviewCount: String(data.length),
+    };
+  } catch {
+    return fallback;
+  }
+}
+
+export default async function JsonLd() {
+  const { ratingValue, reviewCount } = await getReviewStats();
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -27,8 +54,8 @@ export default function JsonLd() {
     priceRange: "€€",
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: "18",
+      ratingValue,
+      reviewCount,
       bestRating: "5",
       worstRating: "1",
     },

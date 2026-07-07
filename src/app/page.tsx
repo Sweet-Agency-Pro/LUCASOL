@@ -6,9 +6,15 @@ import ReviewsSection from "@/components/home/ReviewsSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CTASection from "@/components/home/CTASection";
 import { createServerSupabase } from "@/lib/supabase-server";
+import { sortReviewsByDateDesc } from "@/lib/utils";
 import { reviewsFallback } from "@/data/reviews-fallback";
 import { realisations as realisationsFallback } from "@/data/realisations";
 import type { Review, Realisation } from "@/types";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export const revalidate = 60; // Revalide toutes les 60 secondes (ISR)
 
@@ -33,7 +39,7 @@ export default async function Home() {
     ]);
 
     if (reviewsResult.data && reviewsResult.data.length > 0) {
-      reviews = reviewsResult.data as Review[];
+      reviews = sortReviewsByDateDesc(reviewsResult.data as Review[]);
     }
 
     if (realisationsResult.data && realisationsResult.data.length > 0) {

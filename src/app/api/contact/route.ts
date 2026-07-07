@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createServerSupabase } from "@/lib/supabase-server";
+import { createClient } from "@supabase/supabase-js";
 
 export async function POST(request: Request) {
   try {
@@ -18,7 +18,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Email invalide" }, { status: 400 });
     }
 
-    const supabase = await createServerSupabase();
+    // Client anonyme sans cookies : l'insert doit passer par la policy RLS
+    // publique même si un admin connecté remplit le formulaire
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
     const { error } = await supabase.from("contact_requests").insert({
       name,
       email,

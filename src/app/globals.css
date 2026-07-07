@@ -20,6 +20,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Tailwind v4 met cursor:default sur les boutons - on rétablit la main
+   sur tout élément cliquable non désactivé */
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
 body {
   background: var(--color-background);
   color: var(--color-neutral);

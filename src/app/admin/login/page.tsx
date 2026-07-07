@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase";
 import { Lock, Mail } from "lucide-react";
+import Image from "next/image";
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
@@ -38,8 +39,14 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <span className="text-white text-2xl font-bold">L</span>
+          <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 p-2.5">
+            <Image
+              src="/images/logo/logo1.webp"
+              alt="LUCASOL"
+              width={39}
+              height={40}
+              priority
+            />
           </div>
           <h1 className="text-2xl font-bold text-white">LUCASOL Admin</h1>
           <p className="text-gray-400 mt-1 text-sm">
@@ -50,7 +57,7 @@ export default function AdminLoginPage() {
         {/* Formulaire */}
         <form
           onSubmit={handleLogin}
-          className="bg-white rounded-2xl p-8 shadow-xl space-y-5"
+          className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl space-y-5"
         >
           {error && (
             <div className="p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Nos services - Pose de parquet, PVC, moquette",
   description:
     "Découvrez nos prestations : pose de parquet massif, stratifié, PVC, moquette, ponçage et vitrification. Artisan à Strasbourg.",
+  alternates: { canonical: "/services" },
 };
 
 const iconMap: Record<string, React.ReactNode> = {

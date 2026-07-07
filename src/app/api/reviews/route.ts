@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createServerSupabase } from "@/lib/supabase-server";
 import { reviewsFallback } from "@/data/reviews-fallback";
+import { sortReviewsByDateDesc } from "@/lib/utils";
 
 export async function GET() {
   try {
@@ -22,7 +23,7 @@ export async function GET() {
     }
 
     return NextResponse.json({
-      reviews: data,
+      reviews: sortReviewsByDateDesc(data),
       rating: 5.0,
       total: data.length,
       source: "supabase",

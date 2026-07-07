@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Plus, X, Trash2, Eye, EyeOff, Pencil, Upload } from "lucide-react";
 import Card from "@/components/ui/Card";
 import Badge from "@/components/ui/Badge";
+import SelectMenu from "@/components/ui/SelectMenu";
 import { createClient } from "@/lib/supabase";
 
 const CATEGORIES = [
@@ -34,12 +35,16 @@ const emptyForm = {
   display_order: 0,
 };
 
+const isKnownCategory = (value: string) =>
+  CATEGORIES.some((c) => c.value === value);
+
 export default function AdminRealisationsPage() {
   const [items, setItems] = useState<DBRealisation[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editItem, setEditItem] = useState<DBRealisation | null>(null);
   const [form, setForm] = useState(emptyForm);
+  const [customCategory, setCustomCategory] = useState("");
   const [mainFile, setMainFile] = useState<File | null>(null);
   const [beforeFile, setBeforeFile] = useState<File | null>(null);
   const [afterFile, setAfterFile] = useState<File | null>(null);
@@ -69,6 +74,7 @@ export default function AdminRealisationsPage() {
   const openAdd = () => {
     setEditItem(null);
     setForm(emptyForm);
+    setCustomCategory("");
     setMainFile(null);
     setBeforeFile(null);
     setAfterFile(null);
@@ -77,12 +83,14 @@ export default function AdminRealisationsPage() {
 
   const openEdit = (item: DBRealisation) => {
     setEditItem(item);
+    const known = isKnownCategory(item.category);
     setForm({
       title: item.title,
-      category: item.category,
+      category: known ? item.category : "autre",
       description: item.description ?? "",
       display_order: item.display_order,
     });
+    setCustomCategory(known ? "" : item.category);
     setMainFile(null);
     setBeforeFile(null);
     setAfterFile(null);
@@ -138,6 +146,8 @@ export default function AdminRealisationsPage() {
 
     const payload = {
       ...form,
+      category:
+        form.category === "autre" ? customCategory.trim() : form.category,
       image_url,
       before_image_url,
       after_image_url,
@@ -187,16 +197,16 @@ export default function AdminRealisationsPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 sm:mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-neutral-dark">Réalisations</h1>
+          <p className="text-xl sm:text-2xl font-bold text-neutral-dark">Réalisations</p>
           <p className="text-sm text-neutral mt-1">
             {items.length} réalisations - {publishedCount} publiées
           </p>
         </div>
         <button
           onClick={openAdd}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
+          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors self-start sm:self-auto"
         >
           <Plus size={16} />
           Ajouter
@@ -254,7 +264,7 @@ export default function AdminRealisationsPage() {
               </div>
 
               {/* Avant / Après (si catégorie) */}
-              {(form.category === "avant-apres" || editItem?.category === "avant-apres") && (
+              {(form.category === "avant-apres" || form.category === "autre") && (
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="block text-sm font-medium text-neutral-dark mb-1">
@@ -333,19 +343,26 @@ export default function AdminRealisationsPage() {
                 <label className="block text-sm font-medium text-neutral-dark mb-1">
                   Catégorie *
                 </label>
-                <select
+                <SelectMenu
+                  fullWidth
                   value={form.category}
-                  onChange={(e) =>
-                    setForm((f) => ({ ...f, category: e.target.value }))
-                  }
-                  className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:border-primary outline-none text-sm"
-                >
-                  {CATEGORIES.map((c) => (
-                    <option key={c.value} value={c.value}>
-                      {c.label}
-                    </option>
-                  ))}
-                </select>
+                  options={[
+                    ...CATEGORIES.map((c) => ({ value: c.value, label: c.label })),
+                    { value: "autre", label: "Autre" },
+                  ]}
+                  onChange={(v) => setForm((f) => ({ ...f, category: v }))}
+                  buttonClassName="px-3 py-2 border border-gray-200 rounded-lg text-sm text-neutral-dark bg-white"
+                />
+                {form.category === "autre" && (
+                  <input
+                    type="text"
+                    required
+                    value={customCategory}
+                    onChange={(e) => setCustomCategory(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:border-primary outline-none text-sm mt-2"
+                    placeholder="Précisez la catégorie (ex: Béton ciré)"
+                  />
+                )}
               </div>
 
               <div>
@@ -412,7 +429,7 @@ export default function AdminRealisationsPage() {
 
       {/* Grille */}
       {loading ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {[0, 1, 2, 3, 4, 5].map((i) => (
             <div key={i} className="bg-white rounded-xl overflow-hidden animate-pulse">
               <div className="aspect-[4/3] bg-gray-200" />
@@ -424,7 +441,7 @@ export default function AdminRealisationsPage() {
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {items.map((item) => (
             <Card key={item.id} className="p-0 overflow-hidden">
               <div className="relative aspect-[4/3]">

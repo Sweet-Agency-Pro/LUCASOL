@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "À propos de Lucas ZORRILLA - Artisan poseur de sol",
   description:
     "Découvrez le parcours de Lucas, artisan passionné spécialisé en revêtement de sol depuis plus de 20 ans à Strasbourg.",
+  alternates: { canonical: "/a-propos" },
 };
 
 const iconMap: Record<string, React.ReactNode> = {

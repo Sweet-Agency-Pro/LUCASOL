@@ -1,5 +1,5 @@
 -- ============================================================
--- LUCASOL — Schéma Supabase complet
+-- LUCASOL - Schéma Supabase complet
 -- À exécuter dans l'éditeur SQL du dashboard Supabase
 -- (SQL Editor → New query → coller → Run)
 -- ============================================================
@@ -56,23 +56,27 @@ ALTER TABLE public.reviews          ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.realisations     ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.contact_requests ENABLE ROW LEVEL SECURITY;
 
--- REVIEWS — lecture publique (visible=true seulement), tout pour les admins
+-- REVIEWS - lecture publique (visible=true seulement), tout pour les admins
 CREATE POLICY "reviews_public_select" ON public.reviews
   FOR SELECT TO anon USING (visible = true);
 
 CREATE POLICY "reviews_auth_all" ON public.reviews
   FOR ALL TO authenticated USING (true) WITH CHECK (true);
 
--- REALISATIONS — lecture publique (published=true seulement), tout pour les admins
+-- REALISATIONS - lecture publique (published=true seulement), tout pour les admins
 CREATE POLICY "realisations_public_select" ON public.realisations
   FOR SELECT TO anon USING (published = true);
 
 CREATE POLICY "realisations_auth_all" ON public.realisations
   FOR ALL TO authenticated USING (true) WITH CHECK (true);
 
--- CONTACT REQUESTS — insertion publique, lecture/update pour les admins
+-- CONTACT REQUESTS - insertion publique, lecture/update pour les admins
 CREATE POLICY "contact_requests_public_insert" ON public.contact_requests
   FOR INSERT TO anon WITH CHECK (true);
+
+-- Un admin connecté qui remplit le formulaire public doit aussi pouvoir insérer
+CREATE POLICY "contact_requests_auth_insert" ON public.contact_requests
+  FOR INSERT TO authenticated WITH CHECK (true);
 
 CREATE POLICY "contact_requests_auth_select" ON public.contact_requests
   FOR SELECT TO authenticated USING (true);
@@ -120,7 +124,7 @@ CREATE POLICY "storage_hero_auth_delete" ON storage.objects
 
 
 -- ============================================================
--- 4. SEED DATA — Avis clients réels
+-- 4. SEED DATA - Avis clients réels
 -- (les réalisations sont insérées par le script de migration)
 -- ============================================================
 
@@ -140,7 +144,7 @@ INSERT INTO public.reviews (client, rating, comment, date, source, visible) VALU
   ('Caroline Mary',      5, 'Travail minutieux et méticuleux. Enchantée du résultat.',                                                                            'Novembre 2023', 'google', true),
   ('Pierrick Rompillon', 5, 'Du conseil aux finitions, sérieux remarquable. Travail visible à SENSAS et RIVAL QUIZ à Mundolsheim.',                              'Mars 2026',     'google', true),
   ('Denis Sasorith',     5, 'Très bon artisan, recommande fortement.',                                                                                            'Mars 2026',     'google', true),
-  ('Perrine Huck',       5, 'Réactivité, Ponctualité, Qualité, Professionnalisme, Prix — tout y est.',                                                           'Avril 2022',    'google', true);
+  ('Perrine Huck',       5, 'Réactivité, Ponctualité, Qualité, Professionnalisme, Prix - tout y est.',                                                           'Avril 2022',    'google', true);
 
 
 -- ============================================================

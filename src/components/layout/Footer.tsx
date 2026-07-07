@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin } from "lucide-react";
 
 function InstagramIcon({ size = 16, className = "" }: { size?: number; className?: string }) {
@@ -108,6 +109,28 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <Container className="py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
           <p>© {new Date().getFullYear()} {SITE_NAME} - Tous droits réservés</p>
+          
+          <div className="flex items-center gap-2">
+            <Image
+              src="/sweet_logo.png"
+              alt="Agence Sweet Logo"
+              width={20}
+              height={20}
+              className="object-contain"
+            />
+            <span>
+              Réalisé par{" "}
+              <a
+                href="https://www.agence-sweet.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-medium"
+              >
+                Agence Sweet
+              </a>
+            </span>
+          </div>
+
           <div className="flex gap-6">
             <Link href="/mentions-legales" className="hover:text-white transition-colors">
               Mentions légales
@@ -116,10 +139,6 @@ export default function Footer() {
               Politique de confidentialité
             </Link>
           </div>
-          {/* <p>
-            Site réalisé par{" "}
-            <span className="text-primary font-medium">Agence Sweet</span>
-          </p> */}
         </Container>
       </div>
     </footer>

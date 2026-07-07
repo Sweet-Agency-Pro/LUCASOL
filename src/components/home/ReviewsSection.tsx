@@ -7,28 +7,15 @@ import StarRating from "@/components/ui/StarRating";
 import Card from "@/components/ui/Card";
 import { reviewsFallback } from "@/data/reviews-fallback";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import type { Review } from "@/types";
-
-const cardVariants = {
-  initial: (dir: number) => ({
-    x: dir > 0 ? "110%" : "-110%",
-    opacity: 0,
-  }),
-  animate: {
-    x: 0,
-    opacity: 1,
-  },
-  exit: (dir: number) => ({
-    x: dir > 0 ? "-110%" : "110%",
-    opacity: 0,
-  }),
-};
+import { sortReviewsByDateDesc } from "@/lib/utils";
 
 export default function ReviewsSection({ reviews: reviewsProp }: { reviews?: Review[] }) {
-  const reviews = reviewsProp && reviewsProp.length > 0 ? reviewsProp : reviewsFallback;
+  const reviews = sortReviewsByDateDesc(
+    reviewsProp && reviewsProp.length > 0 ? reviewsProp : reviewsFallback
+  );
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 = suivant, -1 = précédent
   const [visibleCount, setVisibleCount] = useState(3);
 
   const maxIndex = Math.max(0, reviews.length - visibleCount);
@@ -44,28 +31,17 @@ export default function ReviewsSection({ reviews: reviewsProp }: { reviews?: Rev
     return () => window.removeEventListener("resize", update);
   }, [reviews.length]);
 
-  const prev = () => {
-    if (current === 0) return;
-    setDirection(-1);
-    setCurrent((c) => c - 1);
-  };
+  const prev = () => setCurrent((c) => Math.max(0, c - 1));
+  const next = () => setCurrent((c) => Math.min(maxIndex, c + 1));
+  const goTo = (i: number) => setCurrent(i);
 
-  const next = () => {
-    if (current === maxIndex) return;
-    setDirection(1);
-    setCurrent((c) => c + 1);
-  };
+  // Largeur d'une carte en % du conteneur ; la piste glisse d'une carte à la fois
+  const slideWidth = 100 / visibleCount;
 
-  const goTo = (i: number) => {
-    setDirection(i > current ? 1 : -1);
-    setCurrent(i);
-  };
-
-  // Indices des cartes visibles à cet instant
-  const visibleIndices = Array.from(
-    { length: visibleCount },
-    (_, i) => current + i
-  ).filter((i) => i < reviews.length);
+  const averageRating =
+    reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+  const formattedAverage = (Math.round(averageRating * 10) / 10)
+    .toLocaleString("fr-FR");
 
   return (
     <section className="py-16 sm:py-20 md:py-28 bg-background">
@@ -75,9 +51,9 @@ export default function ReviewsSection({ reviews: reviewsProp }: { reviews?: Rev
         {/* Note globale */}
         <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-10">
           <div className="flex items-center gap-2">
-            <StarRating rating={5} size={20} />
+            <StarRating rating={Math.round(averageRating)} size={20} />
             <span className="text-xl sm:text-2xl font-bold text-neutral-dark">
-              5 / 5
+              {formattedAverage} / 5
             </span>
           </div>
           <span className="text-neutral hidden sm:inline">-</span>
@@ -95,41 +71,37 @@ export default function ReviewsSection({ reviews: reviewsProp }: { reviews?: Rev
           </span>
         </div>
 
-        {/* Carousel - chaque carte anime individuellement */}
+        {/* Carousel - piste coulissante, toutes les cartes dans une rangée */}
         <div className="relative px-10 md:px-0">
-          {/* overflow-hidden clipe les cartes qui entrent/sortent */}
-          <div className="overflow-hidden">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <AnimatePresence custom={direction} mode="popLayout">
-                {visibleIndices.map((idx) => (
-                  <motion.div
-                    key={idx}
-                    layout
-                    custom={direction}
-                    variants={cardVariants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
-                  >
-                    <Card hover={false} className="h-full">
-                      <StarRating rating={reviews[idx].rating} />
-                      <p className="mt-3 text-neutral text-sm leading-relaxed line-clamp-4">
-                        {reviews[idx].comment}
+          <div className="overflow-hidden -mx-3">
+            <motion.div
+              className="flex w-full"
+              animate={{ x: `-${current * slideWidth}%` }}
+              transition={{ duration: 0.35, ease: "easeInOut" }}
+            >
+              {reviews.map((review, idx) => (
+                <div
+                  key={idx}
+                  className="shrink-0 px-3"
+                  style={{ width: `${slideWidth}%` }}
+                >
+                  <Card hover={false} className="h-full">
+                    <StarRating rating={review.rating} />
+                    <p className="mt-3 text-neutral text-sm leading-relaxed line-clamp-4">
+                      {review.comment}
+                    </p>
+                    <div className="mt-4 pt-4 border-t border-gray-100">
+                      <p className="font-semibold text-neutral-dark text-sm">
+                        {review.client}
                       </p>
-                      <div className="mt-4 pt-4 border-t border-gray-100">
-                        <p className="font-semibold text-neutral-dark text-sm">
-                          {reviews[idx].client}
-                        </p>
-                        <p className="text-xs text-gray-400">
-                          {reviews[idx].date}
-                        </p>
-                      </div>
-                    </Card>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </div>
+                      <p className="text-xs text-gray-400">
+                        {review.date}
+                      </p>
+                    </div>
+                  </Card>
+                </div>
+              ))}
+            </motion.div>
           </div>
 
           {/* Boutons navigation */}
