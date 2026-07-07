@@ -5,7 +5,7 @@ import RealisationsPreview from "@/components/home/RealisationsPreview";
 import ReviewsSection from "@/components/home/ReviewsSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CTASection from "@/components/home/CTASection";
-import { createServerSupabase } from "@/lib/supabase-server";
+import { createPublicServerSupabase } from "@/lib/supabase-server";
 import { sortReviewsByDateDesc } from "@/lib/utils";
 import { reviewsFallback } from "@/data/reviews-fallback";
 import { realisations as realisationsFallback } from "@/data/realisations";
@@ -23,7 +23,7 @@ export default async function Home() {
   let realisations: Realisation[] = realisationsFallback;
 
   try {
-    const supabase = await createServerSupabase();
+    const supabase = createPublicServerSupabase();
 
     const [reviewsResult, realisationsResult] = await Promise.all([
       supabase

@@ -1,7 +1,8 @@
 import { createServerClient } from "@supabase/ssr";
+import { createClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
 
-/** Client côté serveur (Server Components + API Routes) */
+/** Client côté serveur avec cookies (uniquement pour les routes nécessitant une authentification) */
 export async function createServerSupabase() {
   const cookieStore = await cookies();
 
@@ -22,5 +23,13 @@ export async function createServerSupabase() {
         },
       },
     }
+  );
+}
+
+/** Client public pour le serveur (évite d'appeler cookies() et de casser le rendu statique / ISR) */
+export function createPublicServerSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 }

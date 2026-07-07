@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { createServerSupabase } from "@/lib/supabase-server";
+import { createPublicServerSupabase } from "@/lib/supabase-server";
 import { reviewsFallback } from "@/data/reviews-fallback";
 import { sortReviewsByDateDesc } from "@/lib/utils";
 
 export async function GET() {
   try {
-    const supabase = await createServerSupabase();
+    const supabase = createPublicServerSupabase();
     const { data, error } = await supabase
       .from("reviews")
       .select("id, client, rating, comment, date, source")

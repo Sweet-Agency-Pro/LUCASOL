@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { createServerSupabase } from "@/lib/supabase-server";
+import { createPublicServerSupabase } from "@/lib/supabase-server";
 import { realisations as realisationsFallback } from "@/data/realisations";
 import type { Realisation } from "@/types";
 
 export async function GET() {
   try {
-    const supabase = await createServerSupabase();
+    const supabase = createPublicServerSupabase();
     const { data, error } = await supabase
       .from("realisations")
       .select("*")
