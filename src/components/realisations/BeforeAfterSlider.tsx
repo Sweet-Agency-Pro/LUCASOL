@@ -65,12 +65,14 @@ export default function BeforeAfterSlider({
       <Image src={afterImage} alt={afterLabel} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
 
       {/* Before image (clipped) */}
-      <div
-        className="absolute inset-0 overflow-hidden"
-        style={{ width: `${position}%` }}
-      >
-        <Image src={beforeImage} alt={beforeLabel} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-      </div>
+      <Image
+        src={beforeImage}
+        alt={beforeLabel}
+        fill
+        className="object-cover"
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
+      />
 
       {/* Slider line */}
       <div
