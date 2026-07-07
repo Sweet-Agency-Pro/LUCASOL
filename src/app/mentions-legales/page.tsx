@@ -145,6 +145,21 @@ export default function MentionsLegalesPage() {
     <>
       <section className="bg-neutral-dark pt-32 pb-16">
         <Container>
+          <nav aria-label="Breadcrumb" className="mb-2">
+            <ol className="flex items-center gap-2 text-sm font-medium">
+              <li>
+                <Link href="/" className="text-primary hover:underline">
+                  Accueil
+                </Link>
+              </li>
+              <li className="text-gray-400">&gt;</li>
+              <li>
+                <Link href="/mentions-legales" className="text-primary hover:underline" aria-current="page">
+                  Mentions légales
+                </Link>
+              </li>
+            </ol>
+          </nav>
           <h1 className="text-3xl sm:text-4xl font-bold text-white">
             Mentions légales
           </h1>

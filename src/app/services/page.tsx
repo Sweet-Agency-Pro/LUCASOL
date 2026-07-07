@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { TreeDeciduous, Layers, Armchair, Sparkles, X, ArrowRight } from "lucide-react";
+import { TreeDeciduous, Layers, Armchair, Sparkles, ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import { services } from "@/data/services";

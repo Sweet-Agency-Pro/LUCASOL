@@ -25,7 +25,7 @@ export const NAV_LINKS = [
 
 export const STATS = [
   { value: "20+", label: "Années d'expérience", icon: "Award" },
-  { value: "18", label: "Avis 5 étoiles", icon: "Star" },
+  { value: "16", label: "Avis 5 étoiles", icon: "Star" },
   { value: "100%", label: "Clients satisfaits", icon: "ThumbsUp" },
 ] as const;
 

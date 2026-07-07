@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 
 /** Note moyenne et nombre d'avis visibles, avec fallback statique. */
 async function getReviewStats() {
-  const fallback = { ratingValue: "5", reviewCount: "18" };
+  const fallback = { ratingValue: "5", reviewCount: "16" };
   try {
     const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
