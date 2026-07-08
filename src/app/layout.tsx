@@ -38,6 +38,11 @@ export const metadata: Metadata = {
     "revêtement de sol",
     "LUCASOL",
   ],
+  icons: {
+    icon: [{ url: "/images/logo/logo1.webp", type: "image/webp" }],
+    shortcut: "/images/logo/logo1.webp",
+    apple: "/images/logo/logo1.webp",
+  },
   openGraph: {
     title: "LUCASOL - Pose de parquet et revêtement de sol à Strasbourg",
     description:
