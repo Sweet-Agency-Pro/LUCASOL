@@ -24,14 +24,15 @@ const sections = [
       <>
         <p className="font-semibold text-neutral-dark">LUCASOL</p>
         <p>Lucas ZORRILLA - Artisan poseur de sol</p>
-        <p>Forme juridique : [FORME JURIDIQUE - ex : Micro-entreprise / Entreprise individuelle]</p>
-        <p>[ADRESSE COMPLÈTE - n° et nom de rue], 67370 Dingsheim</p>
-        <p>SIRET : [SIRET]</p>
+        <p>Forme juridique : EURL</p>
+        <p>2 Rue de Chandigarh, 67370 Dingsheim</p>
+        <p>SIRET : 10209028900012</p>
+        <p>RCS Strasbourg : 102 090 289</p>
         <p>
-          Numéro d&apos;inscription au Répertoire des Métiers : [NUMÉRO RM -
-          délivré par la Chambre des Métiers d&apos;Alsace]
+          Entreprise inscrite au Registre National des Entreprises (RNE),
+      secteur des métiers et de l&apos;artisanat
         </p>
-        <p>TVA : [NUMÉRO TVA INTRACOMMUNAUTAIRE ou « TVA non applicable, art. 293 B du CGI »]</p>
+        <p>TVA : FR72102090289</p>
         <p className="mt-2">
           Téléphone :{" "}
           <a href="tel:+33643135492" className="text-primary-dark hover:underline">
@@ -87,19 +88,19 @@ const sections = [
         </p>
         <p className="mt-2">
           <span className="font-semibold text-neutral-dark">Assureur :</span>{" "}
-          [NOM DE LA COMPAGNIE D&apos;ASSURANCE]
+          Ergo
         </p>
         <p>
           <span className="font-semibold text-neutral-dark">
             Numéro de contrat :
           </span>{" "}
-          [NUMÉRO DE CONTRAT]
+          00900000841
         </p>
         <p>
           <span className="font-semibold text-neutral-dark">
             Couverture géographique :
           </span>{" "}
-          [ZONE GÉOGRAPHIQUE - ex : France métropolitaine / Alsace]
+          France métropolitaine et dans les départements d’Outre-Mer
         </p>
       </>
     ),

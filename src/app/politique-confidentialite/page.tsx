@@ -46,7 +46,7 @@ const sections = [
           Lucas ZORRILLA - LUCASOL
         </p>
         <p>
-          [ADRESSE COMPLÈTE], 67370 Dingsheim
+          2 Rue de Chandigarh, 67370 Dingsheim
         </p>
         <p className="mt-2">
           Email :{" "}
@@ -169,8 +169,7 @@ const sections = [
         </span>{" "}
         approuvées par la Commission européenne, garantissant un niveau de
         protection adéquat de vos données personnelles conformément aux
-        articles 46 et 49 du RGPD. [VÉRIFIER ET ADAPTER SI LE EU-US DATA
-        PRIVACY FRAMEWORK S&apos;APPLIQUE À VOS SOUS-TRAITANTS]
+        articles 46 et 49 du RGPD.
       </p>
     ),
   },
