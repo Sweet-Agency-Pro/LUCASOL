@@ -63,7 +63,7 @@ h2, h3, h4, h5, h6 {
 
 /* Logo enhancement: backdrop blur + subtle shadow + halo */
 .logo-bg {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.50);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   padding: 6px;

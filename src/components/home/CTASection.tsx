@@ -12,7 +12,7 @@ export default function CTASection() {
     <section className="relative py-24">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/realisations/parquet-03.jpg"
+          src="/images/hero/hero-parquet-chevron.jpg"
           alt=""
           fill
           className="object-cover"
