@@ -188,8 +188,8 @@ export default function AProposPage() {
               "La Forêt Schiltigheim",
               "Enyo & Gaïa Immobilier",
               "Presta'Nett",
-              "Netimmo",
-              "Le Roi Merlin",
+              "Immonett",
+              "Leroy Merlin",
               "Esprit Intérieur",
             ].map((name) => (
               <span
