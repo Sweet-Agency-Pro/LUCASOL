@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 };
 
 const iconMap: Record<string, React.ReactNode> = {
-  TreeDeciduous: <TreeDeciduous size={36} className="text-primary" />,
-  Layers: <Layers size={36} className="text-primary" />,
-  Armchair: <Armchair size={36} className="text-primary" />,
-  Sparkles: <Sparkles size={36} className="text-primary" />,
+  TreeDeciduous: <TreeDeciduous size={36} className="text-white" />,
+  Layers: <Layers size={36} className="text-white" />,
+  Armchair: <Armchair size={36} className="text-white" />,
+  Sparkles: <Sparkles size={36} className="text-white" />,
 };
 
 const serviceImages: Record<string, string> = {
@@ -79,7 +79,7 @@ export default function ServicesPage() {
               {/* Content */}
               <div>
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-xl bg-primary-light flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-xl bg-primary-dark flex items-center justify-center">
                     {iconMap[service.icon]}
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-bold text-neutral-dark">{service.title}</h2>

@@ -9,10 +9,10 @@ import { services } from "@/data/services";
 import { motion } from "framer-motion";
 
 const iconMap: Record<string, React.ReactNode> = {
-  TreeDeciduous: <TreeDeciduous size={32} className="text-primary" />,
-  Layers: <Layers size={32} className="text-primary" />,
-  Armchair: <Armchair size={32} className="text-primary" />,
-  Sparkles: <Sparkles size={32} className="text-primary" />,
+  TreeDeciduous: <TreeDeciduous size={32} className="text-white" />,
+  Layers: <Layers size={32} className="text-white" />,
+  Armchair: <Armchair size={32} className="text-white" />,
+  Sparkles: <Sparkles size={32} className="text-white" />,
 };
 
 export default function ServicesOverview() {
@@ -35,7 +35,7 @@ export default function ServicesOverview() {
             >
               <Card className="h-full">
                 <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-xl bg-primary-light flex items-center justify-center shrink-0">
+                  <div className="w-14 h-14 rounded-xl bg-primary-dark flex items-center justify-center shrink-0">
                     {iconMap[service.icon]}
                   </div>
                   <div className="flex-1">

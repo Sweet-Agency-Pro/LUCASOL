@@ -321,7 +321,7 @@ export default function PolitiqueConfidentialitePage() {
                 className="bg-white rounded-xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="w-9 h-9 rounded-lg bg-primary-light text-primary-dark flex items-center justify-center shrink-0">
+                  <span className="w-9 h-9 rounded-lg bg-primary-dark text-white flex items-center justify-center shrink-0">
                     {section.icon}
                   </span>
                   <h2 className="font-semibold text-neutral-dark text-lg !text-neutral-dark">

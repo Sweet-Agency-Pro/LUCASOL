@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 };
 
 const iconMap: Record<string, React.ReactNode> = {
-  Shield: <Shield size={28} className="text-primary" />,
-  Eye: <Eye size={28} className="text-primary" />,
-  Heart: <Heart size={28} className="text-primary" />,
-  Brush: <Brush size={28} className="text-primary" />,
+  Shield: <Shield size={28} className="text-white" />,
+  Eye: <Eye size={28} className="text-white" />,
+  Heart: <Heart size={28} className="text-white" />,
+  Brush: <Brush size={28} className="text-white" />,
 };
 
 const cities = [
@@ -118,7 +118,7 @@ export default function AProposPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {VALUES.map((value) => (
               <Card key={value.title} className="text-center">
-                <div className="w-14 h-14 rounded-xl bg-primary-light flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 rounded-xl bg-primary-dark flex items-center justify-center mx-auto mb-4">
                   {iconMap[value.icon]}
                 </div>
                 <h3 className="text-lg font-semibold text-neutral-dark mb-2">
