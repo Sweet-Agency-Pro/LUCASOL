@@ -10,11 +10,12 @@ jobs:
     steps:
       - name: Ping Supabase DB
         run: |
+          NOW=$(date -u +%FT%TZ)
           curl -sS -X PATCH \
             "https://wxnvlnrmstjxnqwwgdmp.supabase.co/rest/v1/keep_alive?id=eq.1" \
             -H "apikey: ${{ secrets.SUPABASE_SERVICE_KEY }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_KEY }}" \
             -H "Content-Type: application/json" \
             -H "Prefer: return=representation" \
-            -d "{\"pinged_at\": \"$(date -u +%FT%TZ)\"}" \
+            --data "{\"pinged_at\":\"${NOW}\"}" \
             -w "\nHTTP_STATUS:%{http_code}\n"
