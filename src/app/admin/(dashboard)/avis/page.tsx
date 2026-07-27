@@ -96,13 +96,20 @@ export default function AdminAvisPage() {
           sortReviewsByDateDesc(prev.map((r) => (r.id === data.id ? data : r)))
         );
     } else {
-      const { data } = await supabase
+      const maxId = reviews.reduce((max, r) => (r.id > max ? r.id : max), 0);
+      const newId = maxId + 1;
+
+      const { data, error } = await supabase
         .from("reviews")
-        .insert({ ...form, source: "manual", visible: true })
+        .insert({ id: newId, ...form, source: "manual", visible: true })
         .select()
         .single();
+      if (error) {
+        console.error("Insert review error:", error);
+      }
       if (data) setReviews((prev) => sortReviewsByDateDesc([data, ...prev]));
     }
+
     setForm(emptyForm);
     setEditReview(null);
     setShowForm(false);

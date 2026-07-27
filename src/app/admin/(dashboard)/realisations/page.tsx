@@ -101,16 +101,31 @@ export default function AdminRealisationsPage() {
     file: File,
     path: string
   ): Promise<string | null> => {
-    const { error } = await supabase.storage
-      .from("realisations")
-      .upload(path, file, { upsert: true });
-    if (error) {
-      console.error("Upload error:", error);
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("bucket", "realisations");
+      formData.append("path", path);
+
+      const res = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) {
+        const errData = await res.json();
+        console.error("Upload error:", errData.error);
+        return null;
+      }
+
+      const data = await res.json();
+      return data.publicUrl;
+    } catch (err) {
+      console.error("Upload fetch error:", err);
       return null;
     }
-    const { data } = supabase.storage.from("realisations").getPublicUrl(path);
-    return data.publicUrl;
   };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -163,13 +178,20 @@ export default function AdminRealisationsPage() {
       if (data)
         setItems((prev) => prev.map((i) => (i.id === data.id ? data : i)));
     } else {
-      const { data } = await supabase
+      const maxId = items.reduce((max, item) => (item.id > max ? item.id : max), 0);
+      const newId = maxId + 1;
+
+      const { data, error } = await supabase
         .from("realisations")
-        .insert({ ...payload, published: true })
+        .insert({ id: newId, ...payload, published: true })
         .select()
         .single();
+      if (error) {
+        console.error("Insert realization error:", error);
+      }
       if (data) setItems((prev) => [...prev, data]);
     }
+
 
     setShowForm(false);
     setSaving(false);

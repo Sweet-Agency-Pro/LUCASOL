@@ -33,3 +33,16 @@ export function createPublicServerSupabase() {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   );
 }
+
+/** Client d'administration avec service_role (bypasse les politiques RLS, à n'utiliser que côté serveur) */
+export function createAdminServerSupabase() {
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!serviceKey) {
+    throw new Error("SUPABASE_SERVICE_ROLE_KEY is missing");
+  }
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    serviceKey
+  );
+}
+
